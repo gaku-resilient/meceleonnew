@@ -1,3 +1,7 @@
+
+
+"use client";
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, Download, ChevronRight } from 'lucide-react';

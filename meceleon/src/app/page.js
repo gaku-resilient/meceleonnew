@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -79,6 +80,7 @@ export default function HydraulicLanding() {
   const [productIndex, setProductIndex] = useState(0);
   const [viewMode, setViewMode] = useState('slider'); // 'slider' or 'grid'
   const [formData, setFormData] = useState({ name: '', company: '', email: '', message: '' });
+  const [formStatus, setFormStatus] = useState({ submitted: false, message: '' });
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -96,15 +98,6 @@ export default function HydraulicLanding() {
     { name: "Gear Pumps", desc: "Compact, reliable solutions for high-pressure applications", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" },
     { name: "Piston Pumps", desc: "Precision-engineered for maximum efficiency and control", img: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" },
     { name: "Vane Pumps", desc: "Smooth operation with exceptional flow characteristics", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop" },
-    { name: "Gear Pumps", desc: "Compact, reliable solutions for high-pressure applications", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" },
-    { name: "Piston Pumps", desc: "Precision-engineered for maximum efficiency and control", img: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" },
-    { name: "Vane Pumps", desc: "Smooth operation with exceptional flow characteristics", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop" },
-    { name: "Gear Pumps", desc: "Compact, reliable solutions for high-pressure applications", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" },
-    { name: "Piston Pumps", desc: "Precision-engineered for maximum efficiency and control", img: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" },
-    { name: "Vane Pumps", desc: "Smooth operation with exceptional flow characteristics", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop" },
-    { name: "Gear Pumps", desc: "Compact, reliable solutions for high-pressure applications", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" },
-    { name: "Piston Pumps", desc: "Precision-engineered for maximum efficiency and control", img: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" },
-    { name: "Vane Pumps", desc: "Smooth operation with exceptional flow characteristics", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&h=400&fit=crop" },
     { name: "Specialty Pumps", desc: "Custom solutions for unique industrial challenges", img: "https://images.unsplash.com/photo-1581092918484-8313e1f7e8d0?w=600&h=400&fit=crop" }
   ];
 
@@ -119,8 +112,9 @@ export default function HydraulicLanding() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Thank you! We will contact you shortly.');
+    setFormStatus({ submitted: true, message: 'Thank you! We will contact you shortly.' });
     setFormData({ name: '', company: '', email: '', message: '' });
+    setTimeout(() => setFormStatus({ submitted: false, message: '' }), 5000);
   };
 
   const scrollToSection = (id) => {
@@ -131,18 +125,19 @@ export default function HydraulicLanding() {
   };
 
   return (
-   
     <div className="font-sans bg-gray-50 text-gray-900">
-       <Header />
+      <Header />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop')",
-            transform: `translateY(${scrollY * 0.5}px)`
-          }}
-        >
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop"
+            alt="Hydraulic pump machinery"
+            layout="fill"
+            objectFit="cover"
+            priority
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-blue-600/70 to-blue-900/80"></div>
         </div>
         
@@ -220,18 +215,18 @@ export default function HydraulicLanding() {
                   {products.map((product, i) => (
                     <div key={i} className="w-full flex-shrink-0 px-2">
                       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                        <img 
-                          src={product.img} 
-                          alt={product.name}
-                          className="w-full h-96 object-cover"
-                        />
+                        <div className="relative w-full h-96">
+                          <Image 
+                            src={product.img} 
+                            alt={product.name}
+                            layout="fill"
+                            objectFit="cover"
+                          />
+                        </div>
                         <div className="p-8">
                           <h3 className="text-3xl font-bold mb-3 text-gray-900">{product.name}</h3>
                           <p className="text-gray-600 text-lg mb-6">{product.desc}</p>
-                          <button 
-                            onClick={() => alert(`Viewing details for ${product.name}`)}
-                            className="text-orange-500 font-semibold flex items-center gap-2 hover:gap-4 transition-all text-lg"
-                          >
+                          <button className="text-orange-500 font-semibold flex items-center gap-2 hover:gap-4 transition-all text-lg">
                             View Details <ArrowRight size={18} />
                           </button>
                         </div>
@@ -269,20 +264,19 @@ export default function HydraulicLanding() {
                   key={i}
                   className="group relative overflow-hidden rounded-xl bg-white border border-gray-200 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3"
                 >
-                  <div className="overflow-hidden">
-                    <img 
+                  <div className="relative w-full h-64 overflow-hidden">
+                    <Image 
                       src={product.img} 
                       alt={product.name}
-                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                      layout="fill"
+                      objectFit="cover"
+                      className="transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                   <div className="p-6">
                     <h3 className="text-2xl font-bold mb-2 text-gray-900">{product.name}</h3>
                     <p className="text-gray-600 mb-4">{product.desc}</p>
-                    <button 
-                      onClick={() => alert(`Viewing details for ${product.name}`)}
-                      className="text-orange-500 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all"
-                    >
+                    <button className="text-orange-500 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
                       View Details <ArrowRight size={18} />
                     </button>
                   </div>
@@ -316,7 +310,7 @@ export default function HydraulicLanding() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">What Our <span className="text-orange-500">Clients Say</span></h2>
           <div className="relative bg-gray-50 border border-gray-200 p-10 rounded-2xl shadow-lg">
-            <div className="text-6xl text-orange-500 mb-4">"</div>
+            <div className="text-6xl text-orange-500 mb-4">{'"'}</div>
             <p className="text-xl md:text-2xl mb-6 italic text-gray-800">{testimonials[testimonialIndex].quote}</p>
             <div className="flex items-center justify-between">
               <div>
@@ -348,13 +342,14 @@ export default function HydraulicLanding() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Get a Custom <span className="text-orange-500">Solution</span> for Your Project</h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <div className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <input 
                   type="text"
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition"
+                  required
                 />
                 <input 
                   type="text"
@@ -369,20 +364,23 @@ export default function HydraulicLanding() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition"
+                  required
                 />
                 <textarea 
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 h-32 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition"
+                  required
                 ></textarea>
                 <button 
-                  onClick={handleSubmit}
+                  type="submit"
                   className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
                   Submit Inquiry
                 </button>
-              </div>
+                 {formStatus.submitted && <p className="text-center text-green-600 mt-4">{formStatus.message}</p>}
+              </form>
             </div>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -421,10 +419,6 @@ export default function HydraulicLanding() {
         </div>
       </section>
 
-      {/* Footer */}
-      {/* <footer className="bg-gray-900 py-8 px-4 text-center text-gray-400">
-        <p>&copy; 2025 Hydraulic Solutions. All rights reserved.</p>
-      </footer> */}
       <Footer />
 
       <style jsx>{`
@@ -439,3 +433,4 @@ export default function HydraulicLanding() {
     </div>
   );
 }
+

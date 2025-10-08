@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Header from './components/Header';
-import Footer from './components/Footer';
+
 
 // SVG Icons as components
 const Gear = ({ className }) => (
@@ -126,7 +125,6 @@ export default function HydraulicLanding() {
 
   return (
     <div className="font-sans bg-gray-50 text-gray-900">
-      <Header />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -418,8 +416,6 @@ export default function HydraulicLanding() {
           </div>
         </div>
       </section>
-
-      <Footer />
 
       <style jsx>{`
         @keyframes fade-in {

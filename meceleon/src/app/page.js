@@ -593,7 +593,7 @@ export default function HydraulicLanding() {
             priority
             style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/70 to-blue-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-grey-600/70 to-red-900/80"></div>
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fade-in text-white">

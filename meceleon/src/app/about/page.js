@@ -653,7 +653,9 @@ export default function AboutPage() {
                         <div>
                             <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Journey: From Trader to Solutions Provider</h2>
                             <p className="text-gray-600 mb-4">
-                                Our journey began in 2016 as Toolz Trading Company. While new to the business, we had strong support from industry friends. However, the name "Trading" didn't reflect our true vision—to build a solution-oriented, industry-focused identity.
+                                       Our journey began in 2016 as Toolz Trading Company. While new to the business, we had strong support from industry friends. However, the name
+                                        Trading didn&apos;t reflect our true vision — to build a solution-oriented, industry-focused identity.
+
                             </p>
                             <p className="text-gray-600">
                                 With the GST reform in 2017, we seized the opportunity to redefine ourselves and became Meceleon Solutions. This name truly represents the industries we serve and the values we uphold. This transformation laid the foundation for the strong, customer-focused organization we are today, proudly serving as an authorized channel partner for world-renowned brands like Power Team.
@@ -674,7 +676,7 @@ export default function AboutPage() {
             {/* The Meaning of Meceleon Section */}
             <section className="bg-white py-16 md:py-24">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">The Denomination: What "Meceleon" Means</h2>
+                    <h2 className="text-3xl font-bold text-gray-800 mb-4">The Denomination: What Meceleon Means</h2>
                     <p className="text-gray-600 max-w-3xl mx-auto mb-10">Our name reflects our vision and commitment to delivering complete, integrated solutions for our customers.</p>
                     <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         <div className="bg-gray-50 p-6 rounded-lg">
@@ -765,4 +767,3 @@ export default function AboutPage() {
         </div>
     );
 }
-

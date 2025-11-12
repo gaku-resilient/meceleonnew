@@ -5,10 +5,11 @@ import Link from 'next/link';
 
 // You can replace this with your actual logo component or an <img> tag
 const Logo = () => (
-    <Link href="/" className="text-2xl font-bold text-white flex items-center mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-auto mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
+     <Link href="/" className="text-2xl font-bold text-white flex items-center">
+        <div className="mr-2 flex items-center">
+            {/* Correct solid cog/gear icon from Heroicons */}
+            <img src="/logo.png" alt="Meceleon Logo" className="h-8 w-auto mr-2"/>
+        </div>
         Meceleon
     </Link>
 );
@@ -29,7 +30,7 @@ export default function Footer() {
                     <div className="md:col-span-2 lg:col-span-1">
                         <Logo />
                         <p className="text-gray-400 text-sm leading-relaxed">
-                            Providing top-tier hydraulic solutions engineered for performance, reliability, and excellence across all major industries.
+                           we believe in building long-lasting partnerships by consistently delivering exceptional value and going beyond expectations. Our team is here to help you find tailored solutions to meet your unique requirements, making sure your projects are backed by trusted products and reliable support.
                         </p>
                     </div>
 
@@ -48,8 +49,8 @@ export default function Footer() {
                     <div>
                         <h3 className="text-lg font-semibold mb-4 tracking-wider">Resources</h3>
                         <ul className="space-y-3">
-                            <li><Link href="/downloads" className="text-gray-400 hover:text-orange-400 transition-colors">Downloads</Link></li>
-                            <li><Link href="/videos" className="text-gray-400 hover:text-orange-400 transition-colors">Videos</Link></li>
+                            {/* <li><Link href="/downloads" className="text-gray-400 hover:text-orange-400 transition-colors">Downloads</Link></li>
+                            <li><Link href="/videos" className="text-gray-400 hover:text-orange-400 transition-colors">Videos</Link></li> */}
                             <li><Link href="/partners" className="text-gray-400 hover:text-orange-400 transition-colors">Partners</Link></li>
                         </ul>
                     </div>
@@ -60,7 +61,7 @@ export default function Footer() {
                         <ul className="space-y-3 text-gray-400">
                            <li className="flex items-start">
                                 <span className="mt-1 mr-3 text-orange-400">&#9679;</span>
-                                <span>123 Industrial Park, New Delhi, India</span>
+                                <span> B-2504, Apex Athena, Plot No. 12A, Noida, UP-201304 </span>
                            </li>
                            <li className="flex items-start">
                                 <span className="mt-1 mr-3 text-orange-400">&#9679;</span>

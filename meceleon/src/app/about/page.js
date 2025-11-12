@@ -618,7 +618,7 @@ const ValueCard = ({ icon, title, description }) => (
 
 const IndustryCard = ({ icon, name }) => (
     <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-110 text-center">
-        <div className="flex justify-center text-blue-600 mb-3">{icon}</div>
+        <div className="flex justify-center text-red-600 mb-3">{icon}</div>
         <h3 className="font-semibold text-gray-900">{name}</h3>
     </div>
 );
@@ -678,15 +678,15 @@ export default function AboutPage() {
                     <p className="text-gray-600 max-w-3xl mx-auto mb-10">Our name reflects our vision and commitment to delivering complete, integrated solutions for our customers.</p>
                     <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         <div className="bg-gray-50 p-6 rounded-lg">
-                            <h3 className="text-2xl font-bold text-blue-600">MEC</h3>
+                            <h3 className="text-2xl font-bold text-red-600">MEC</h3>
                             <p className="font-semibold text-gray-800">Mechanical</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-lg">
-                            <h3 className="text-2xl font-bold text-blue-600">ELE</h3>
+                            <h3 className="text-2xl font-bold text-red-600">ELE</h3>
                             <p className="font-semibold text-gray-800">Electrical</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-lg">
-                            <h3 className="text-2xl font-bold text-blue-600">ON</h3>
+                            <h3 className="text-2xl font-bold text-red-600">ON</h3>
                             <p className="font-semibold text-gray-800">Always ON & Ready</p>
                         </div>
                     </div>
